@@ -1,0 +1,1 @@
+TweenMax.to('#movingDiv', 3.0, {x:1200, ease: Power0.easeNone, yoyo:true, repeat:-1})

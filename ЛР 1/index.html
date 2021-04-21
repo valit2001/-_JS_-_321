@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>ПІ-321</h2>
+    <h1>Литовченко Валентина</h1>
+    <h3>Лабораторна робота 1 (Практичне завдання 1)</h3>
+    <script>
+        var a;
+        var b;
+        while((a = +prompt("Input first number: ")) < 1) {}
+        while((b = +prompt("Input second number: ")) < 1) {}
+        var res = 1;
+        var minN = Math.min(a, b);
+        var maxN = Math.max(a, b);
+        var chastka = Math.floor(maxN / minN);
+
+        for(let i = 1; i <= minN; i++){
+            res *= (i % chastka == 0? i : 1);
+        }
+
+        alert(res)
+    </script>
+</body>
+</html>

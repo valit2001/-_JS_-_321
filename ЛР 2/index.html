@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //завдання 1
+         function showarraycontent(MyArray){
+           
+           var rez = null;
+          
+           if(MyArray.length === 1){
+               rez =  MyArray[0]
+           }
+           else if(MyArray.length === 2){
+               rez = MyArray[0] + ' i ' + MyArray[1]
+           }
+           else{
+               for(let i = 0; i < MyArray.length - 2; i++){
+                   rez = rez + MyArray[i] + ', '
+               }
+               rez += MyArray[MyArray.length-2]
+               rez += ' i ' + MyArray[MyArray.length-1]
+           }
+           alert(rez)
+       }
+       
+       var a = [14]
+       var b = [14, 35]
+       var c = [14, 13, 58, 38, 447, 374, 47]
+
+       showarraycontent(a)
+       showarraycontent(b)
+       showarraycontent(c)
+
+       //завдання 2
+        function checkPrompt(message){
+        let res;
+        while((res = prompt(message)).length < 1){}
+        return res;
+        }
+
+        var name = checkPrompt("Input your name:");
+        var middleName = checkPrompt("Input your middle name:");
+        var surname = checkPrompt("Input your surname:");
+
+        function question(quest, ans){
+            return {q: quest, answer: ans};
+        }
+
+        var questionArray = [
+            question("Does Number type stores 10?", true),
+            question("Does Number type stores 10.5?", true),
+            question("Is NaN a type?", true),
+            question("Does Number type stores true?", false),
+            question("Undefined is not a type", false),
+            question("Is empty array interpreted as false?", false),
+            question("Is object without fields interpreted as true?", true)
+        ];
+
+        var countRight = 0;
+        var isCounted = true;
+        var timer = 5;
+        var logs = '';
+        var interval = setInterval(() => {
+            --timer;
+            if(timer <= 0) {
+                logs+='-';
+                isCounted = false;
+                console.log('No time left!');
+                return;
+            }
+            console.log(timer, 'seconds left');
+        }, 1000);
+
+        for (let i = 0; i < questionArray.length; i++) {
+            timer = 5;
+            isCounted = true;
+            countRight += isCounted ? confirm(questionArray[i].q) == questionArray[i].answer : 0;
+            if(i == questionArray.length - 1){
+                clearInterval(interval);
+            }
+        };
+
+        alert(`${surname} ${name} ${middleName}, you guessed ${countRight} / ${questionArray.length} questions!`);
+
+    </script>
+</body>
+</html>

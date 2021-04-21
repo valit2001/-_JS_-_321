@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>ПІ-321</h2>
+    <h1>Литовченко Валентина</h1>
+    <h3>Лабораторна робота 1 (Практичне завдання 2)</h3>
+    <script>
+      function checkPrompt(message){
+            let res;
+            while((res = prompt(message)).length < 1){}
+            return res;
+        }
+
+        var name = checkPrompt("Input your name:");
+        var middleName = checkPrompt("Input your middle name:");
+        var surname = checkPrompt("Input your surname:");
+
+        function question(quest, ans){
+            return {q: quest, answer: ans};
+        }
+
+        var questionArray = [
+            question("Does Number type stores 10?", true),
+            question("Does Number type stores 10.5?", true),
+            question("Is NaN a type?", true),
+            question("Does Number type stores true?", false),
+            question("Undefined is not a type", false),
+            question("Is empty array interpreted as false?", false),
+            question("Is object without fields interpreted as true?", true)
+        ];
+
+        var countRight = 0;
+        questionArray.forEach((el) => {
+            countRight += confirm(el.q) == el.answer;
+        });
+
+        alert(`${surname} ${name} ${middleName}, you guessed ${countRight} / ${questionArray.length} questions!`);
+    </script>
+</body>
+</html>
